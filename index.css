@@ -1,0 +1,107 @@
+/* CSS file that is connected to the html file that uses it for styling the content in it */
+
+*{
+cursor: url(heart_cursor_2.cur), default; /*changes the cursor to the one desired */
+margin: 0;  /* this will set the whole page to 0 */
+padding: 0;  /* for a fresh clean start with no margin or paddings*/
+box-sizing: border-box; /* border-box: the height and width properties as well as min/max properties includes padding, border and content*/
+}
+
+body{
+  background-image: url(pinkClouds.jpg); /* background image for the whole page*/
+  background-repeat: no-repeat; /* to fill in the page it shouldn't repeat the image, instead streches the image*/
+  background-attachment: fixed; /* fixes the image in place, so when you scroll the background doesn't move*/
+  background-size: 100% 100%; /* to fill the whole page in terms of width and height*/
+}
+
+.nav_bar{
+	list-style-type: none; /* to make the list bullet points marker as none*/
+	margin-top: 2%; /* to adjust the location of the navigation bar from the top*/
+  margin-left: 14%; /* to adjust the location of the navigation bar from the left*/
+  position: fixed;  /* fixes the Navigation Bar in place, so when you scroll down it doesn't move up [positioned relative to the browser window]*/
+  z-index: 1; /* interms of priority of what shows on top of the other, Navigation bar has the top priority [bring front]*/
+  font-family: Century Gothic; /* sets the font family of the text */
+}
+
+.nav_bar li{
+  float: left;
+	display: inline; /*makes the list content [links] display on the same line*/
+  padding: 17px; /*adds space between the list content [links]*/
+}
+
+.nav_bar li a{
+	text-decoration: none; /*by default links are underlined, so setting this to none removes the underline*/
+	color: white; /*makes text color white*/
+	padding: 10px 20px; /*sets the padding around the links*/
+	border: 1px solid transparent; /*sets border to transparent*/
+  transition: 0.6s ease; /*adds animation to the navigation bar, so when the page opens..the navigation bar moves from left to right smoothly*/
+  margin: 5px;
+}
+
+.nav_bar li a:hover{ /* when the cursor hovers over a link, changes happen to the style */
+  background-color: white; /* when the cursor hovers over a link, the background color of that link becomes white */
+  color: black; /* and the text color become black */
+
+  /*once the cursor moves away the link goes back to it's original style*/
+}
+
+.nav_bar li.active a{ /* "active" is used to select and style the active link, a link becomes active when you click on it */
+  background-color: white;
+  color: black;
+}
+
+#WelcomeToSiteBorder{
+  position: relative; /*to make image positioned relative to its normal position */
+  top: 100px;  /* to adjust the location of the image from the top*/
+  left: 400px;  /* to adjust the location of the image from the left*/
+  width: 850px;  /* sizing the image width*/
+  height:	530px; /* sizing the image height*/
+}
+
+#WelcomeToSiteText{
+  position: absolute; /*to make image positioned relative to its first positioned ancestor element*/
+  top: 160px;
+  left: 400px;
+  width: 850px;
+  height:	345px;
+}
+
+.Container{
+ position: relative;
+ display: flex; /* element gets displayed as a block-level flex container */
+ flex-direction: column; /* to display elements vertically in a form of a column */
+ font-family: Century Gothic;
+ color: white;
+ top: 20px;
+ left: 600px;
+ width: 420px;
+ text-align: center;  /* alignes the text in the center*/
+}
+
+.Container > #Name{
+ position: relative;
+ font-size: 250%;   /* sets the font size of text*/
+ border: 3px solid rgba(212, 175, 55, 1); /* sets a border of 3px thickness, solid for a [solid border] and of color gold*/
+ border-radius: 15px; /* to make border radius rounded a bit*/
+ padding: 10px 20px; /* make padding around text bigger to make the border look nice*/
+ background-color: rgba(255, 192, 203, .5); /* sets the background color of the text to light pink and the opacity to half [makes it a bit transparent]*/
+
+}
+
+.Container > #Slogan{
+  position: relative;
+  font-size: 200%;
+  border: 3px solid rgba(212, 175, 55, 1);
+  border-radius: 15px;
+  padding: 10px 50px;
+  background-color: rgba(255, 192, 203, .5);
+}
+
+.Container > #Slogan_2{
+  position: relative;
+  font-size: 180%;
+  border: 3px solid rgba(212, 175, 55, 1);
+  border-radius: 15px;
+  padding: 8px 80px;
+  background-color: rgba(255, 192, 203, .5);
+}

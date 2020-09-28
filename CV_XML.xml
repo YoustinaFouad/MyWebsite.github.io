@@ -1,0 +1,232 @@
+<!DOCTYPE CV [
+<!ELEMENT CV (Myname,gender,age,DOB,phone,email,Address,languages,Marital_Status,Programing_Languages*,Programing_Languages2*,skills*,More_Skills*,Academic_Certificate,myInterest+,Education*)>
+<!ELEMENT Myname (#PCDATA)>
+<!ELEMENT gender (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT DOB (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT Address (#PCDATA)>
+<!ELEMENT languages (#PCDATA)>
+<!ELEMENT Marital_Status (#PCDATA)>
+<!ELEMENT Programing_Languages (name,level)>
+<!ELEMENT Programing_Languages2 (name,level)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT level (#PCDATA)>
+<!ELEMENT skills (Other_Skills)>
+<!ELEMENT Other_Skills (#PCDATA)>
+<!ELEMENT More_Skills (Side_Skills)>
+<!ELEMENT Side_Skills (#PCDATA)>
+<!ELEMENT Academic_Certificate (#PCDATA)>
+<!ELEMENT myInterest (personal)>
+<!ELEMENT personal (#PCDATA)>
+<!ELEMENT Education (Certification,School_name,year,performance)>
+<!ELEMENT Certification (#PCDATA)>
+<!ELEMENT School_name (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT performance (#PCDATA)>
+]>
+<CV>
+  <Myname> Youstina Fouad </Myname>
+  <gender>Female</gender>
+  <age> Egyptian </age>
+  <DOB> 28-10-1997</DOB>
+  <phone> +971509343483 </phone>
+  <email> youstinamaged16@gmail.com </email>
+  <Address> P.O.BOX 22576 </Address>
+  <languages> Arabic, English, Korean (Novice) </languages>
+  <Marital_Status> Single </Marital_Status>
+
+    <!-- Programming languages learnt inside college: -->
+       <Programing_Languages>
+         <name> C++ </name>
+         <level>Excellent</level>
+       </Programing_Languages>
+
+      <Programing_Languages>
+	    	 <name> Java </name>
+         <level>Excellent</level>
+      </Programing_Languages>
+
+
+      <Programing_Languages>
+         <name> SQL/NoSQL </name>
+         <level>Very Good</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+         <name> HTML </name>
+         <level>Excellent</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+         <name> CSS </name>
+         <level>Excellent</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+	    	 <name> XML </name>
+         <level>Excellent</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+         <name> XSL/XSLT </name>
+         <level>Excellent</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+         <name> JSON </name>
+         <level>Very Good</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+         <name> AJAX </name>
+         <level>Very Good</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+		     <name> Javascript </name>
+         <level>Excellent</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+		     <name> C </name>
+         <level>Very Good</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+         <name> C# </name>
+         <level>Very Good</level>
+      </Programing_Languages>
+
+      <Programing_Languages>
+         <name> Assembly </name>
+         <level>Good</level>
+    	</Programing_Languages>
+
+      <Programing_Languages>
+         <name> Shell Scripting </name>
+         <level>Very Good</level>
+      </Programing_Languages>
+
+        <!-- Self Taught Programming languages: -->
+        
+        <Programing_Languages2>
+          <name> Android Studio </name>
+          <level>Excellent</level>
+        </Programing_Languages2>
+
+        <Programing_Languages2>
+          <name> ARCore and Sceneform </name>
+          <level>Very Good</level>
+        </Programing_Languages2>
+
+   <skills>
+    	<Other_Skills> 3D Modelling and Anmimation using AutoDesk Maya</Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> Website Development using Sublime and Atom</Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> Game Development using Unreal Engine 4 and  Unity </Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> UI/UX Design </Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> Multithreading using Ubuntu </Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> Artificial intelligence using MATLAB and Jupyter Notebook and basic Robotics using Arduino </Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> Android studio (app design and functionality) </Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> ARCore and Sceneform with Android </Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> Navigation using Beacons with Android </Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> Computer graphics (html5 + javascript)  </Other_Skills>
+    </skills>
+
+    <skills>
+      <Other_Skills> Problem Solving and Algorithms </Other_Skills>
+    </skills>
+
+
+
+    <More_Skills>
+      <Side_Skills>Exellent at Designing and color chocies for UI Design, 3D Modelling and Game Design </Side_Skills>
+    </More_Skills>
+
+    <More_Skills>
+      <Side_Skills>Managing time and getting work done fast</Side_Skills>
+    </More_Skills>
+
+    <More_Skills>
+      <Side_Skills>Never give up even if the task is very challenging</Side_Skills>
+    </More_Skills>
+
+    <More_Skills>
+      <Side_Skills>Always seeking perfection</Side_Skills>
+    </More_Skills>
+
+    <More_Skills>
+      <Side_Skills>Challenging myself to become better</Side_Skills>
+    </More_Skills>
+
+    <More_Skills>
+      <Side_Skills>Team Player </Side_Skills>
+    </More_Skills>
+
+    <More_Skills>
+      <Side_Skills>Always seeking knowledge and love to learn new things </Side_Skills>
+    </More_Skills>
+
+
+      <!-- Academic Certificate -->
+      <Academic_Certificate> Was awarded a 25% scholarship on admission to the University of Wollongong in dubai for having an excellent performance in High school, and Currently still maintaining my position as a scholership holder</Academic_Certificate>
+
+
+   <myInterest>
+      <personal>Reading books about romantic comedies as well as science fiction and fantasy</personal>
+   </myInterest>
+     <myInterest>
+      <personal>Writing TV show reviews for korean and chinese dramas on my page https://mydramalist.com/profile/Tina1997</personal>
+   </myInterest>
+     <myInterest>
+      <personal>Drawing cartoon characters and creating short stories</personal>
+   </myInterest>
+     <myInterest>
+      <personal>Reading webtoon stories on https://www.webtoons.com/en/</personal>
+    </myInterest>
+     <myInterest>
+      <personal>Exercising weekly</personal>
+    </myInterest>
+
+      <Education>
+               <Certification>High School</Certification>
+               <School_name> American International School </School_name>
+               <year>  2012 - 2016  </year>
+              <performance> 95%  </performance>
+      </Education>
+      <Education>
+               <Certification>Bachelor of Computer Science: Multimedia and Game Development</Certification>
+               <School_name> University of Wollongong in Dubai </School_name>
+               <year>  2016 - 2020  </year>
+              <performance>  D  </performance>
+       </Education>
+
+</CV>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="Favourites_CSS.css"> <!-- Connects the html file to the CSS file that contains the styles of this page -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <title>My Favourties</title> <!-- Name of the web tab -->
+
+    <script type="text/javascript"> // Once the webpage opens the Database is created
+      var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+      db.transaction(function (tx) {
+         tx.executeSql('CREATE TABLE IF NOT EXISTS COMMENTS (id INTEGER PRIMARY KEY, EMAIL TEXT, COMMENT VARCHAR, RATE TEXT)'); // creates a Table called COMMENTS
+      });
+      db.transaction( function (tx) {
+        tx.executeSql('SELECT * FROM COMMENTS', [], function (tx, results) { //select data from a database
+            var len = results.rows.length;
+            var i;
+            for (i = 0; i < len; i++) //Display previously created notes
+            {
+              CreateNewComment(results.rows.item(i).EMAIL, results.rows.item(i).COMMENT, results.rows.item(i).RATE); // call the function CreateNewComment
+            }
+        }, null);
+      });
+    </script>
+  </head>
+  <body>
+
+    <div id="top"></div> <!-- when you click on the "Top" link at the bottom left corner of the screen, it goes up here -->
+    <a id="GoBackToTop" href="#top">Top</a> <!-- A target link, linked to the element with id "top" which is in the same page -->
+
+    <div class="Navigation_Bar"><!-- serves as a container -->
+      <ul class="nav_bar"> <!-- creats a list -->
+          <!-- All of these are linked to another pages -->
+        <li class="b"><a href="index.html">Home</a></li><!-- links to the "Home" page-->
+        <li class="c"><a href="About_Me_Page_HTML.html">About Me</a></li><!-- links to the "About Me" page -->
+        <li class="d"><a href="My_Skills_HTML.html">My Skills</a></li><!-- links to the "My Skills" page -->
+        <li class="e"><a href="Education_HTML.html">Education</a></li><!-- links to the "Education" page where a table is used -->
+        <li class="f"><a href="CV_HTML.html">CV</a></li><!-- links to the "CV" page where XML and AJAX are included -->
+        <li class="h active"><a href="Favourites_HTML.html">3D Models</a></li><!-- links to the "Favourites" page where a Database is created and used for the Comment Section, since this is the "Favourites" page, the link is active -->
+        <li class="j"><a href="Preferences_HTML.html">Projects</a></li><!-- links to the "Preferences" page where there is external links to real websites  -->
+        <li class="i"><a href="Contact_Me_HTML.html">Contact</a></li><!-- links to the "Adventure" page where an image map was used -->
+        <!-- <li class="k"><a href="Contact_Me_HTML.html">Contact Me</a></li> --><!-- links to the "Contact Me" page where there are links to my social media pages -->
+      </ul>
+    </div>
+
+
+<h1 class="heading">Autodesk Maya rendered 3D Models</h1> <!-- A header, by default the <h1> tag has a style to the text in which the size is big and bold -->
+
+    <div class="slideshow-container"> <!-- Container for the slideshow for the images -->
+      <br><br />
+      <br><br />
+      <br><br />
+      <br><br />
+      <div class="mySlides fade"> <!-- fading animation is added to make transition smooth -->
+        <div class="numbertext">1 / 10</div> <!-- the images are numbered from 1 to 8 -->
+        <img src="ship.jpeg" style="width:100%">
+        <div class="text" style="width: 390px; left: 270px;">Pearl of the Sea - Pirate Ship</div> <!-- text describing the image -->
+      </div>
+      <div class="mySlides fade"> 
+        <div class="numbertext">1 / 10</div> 
+        <img src="ship2.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Pirate Ship Image</div> 
+      </div> 
+      <div class="mySlides fade"> 
+        <div class="numbertext">1 / 10</div> 
+        <img src="ship3.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Pirate Ship Image</div> 
+      </div> 
+      <div class="mySlides fade"> 
+        <div class="numbertext">1 / 10</div> 
+        <img src="ship4.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Pirate Ship Image</div> 
+      </div> 
+      <div class="mySlides fade"> 
+        <div class="numbertext">1 / 10</div> 
+        <img src="ship5.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Pirate Ship Image</div> 
+      </div>  
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 10</div>
+        <img src="azer3.jpeg" style="width:100%">
+        <div class="text"  style="width: 530px; left: 190px;">Azerbaijan Pavilion - Dubai Expo 2020 Site</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 10</div>
+        <img src="azer1.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Azerbaijan Pavilion Image</div> 
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 10</div>
+        <img src="azer2.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Azerbaijan Pavilion Image</div> 
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">5 / 10</div>
+        <img src="azer5.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Azerbaijan Pavilion Image</div> 
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">6 / 10</div>
+        <img src="azer4.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Azerbaijan Pavilion Image</div> 
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">7 / 10</div>
+        <img src="sus2.jpeg" style="width:100%">
+        <div class="text"  style="width: 530px; left: 190px;">Sustainability Pavilion - Dubai Expo 2020 Site</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">8 / 10</div>
+        <img src="sus3.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Sustainability Pavilion Image</div> 
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">9 / 10</div>
+        <img src="sus4.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Sustainability Pavilion Image</div> 
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">10 / 8</div>
+        <img src="sus1.jpeg" style="width:100%">
+        <div style="width: 390px; left: 270px;">*Extra Sustainability Pavilion Image</div> 
+      </div>
+
+
+      <a class="prev" onclick="Plus_Minus_Slides(-1)">&#9668;</a> <!-- calls function Plus_Minus_Slides() and decrements the sliddeshow to the previous image -->
+      <a class="next" onclick="Plus_Minus_Slides(1)">&#9658;</a> <!-- calls function Plus_Minus_Slides() and increments the sliddeshow to the next image-->
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot active" onclick="currentSlide(1)"></span> <!-- calls function currentSlide() and opens image based on the dot and image number -->
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
+      <span class="dot" onclick="currentSlide(8)"></span>
+      <span class="dot" onclick="currentSlide(9)"></span>
+      <span class="dot" onclick="currentSlide(10)"></span>
+      <span class="dot" onclick="currentSlide(11)"></span>
+      <span class="dot" onclick="currentSlide(12)"></span>
+      <span class="dot" onclick="currentSlide(13)"></span>
+      <span class="dot" onclick="currentSlide(14)"></span>
+    </div>
+    <br><br />
+
+
+  <!-------------------------------------------------------- COMMENT SECTION ---------------------------------------------------------------->
+    <div class="comment_container" id="Input_Comment"> <!-- container the contains the Comments Form -->
+
+			<h2 id="comment_heading">What do you think?</h2>
+      <h3 id="comment_heading">Let Me know In the comments section!<h3>
+      <br><br />
+
+			<form onsubmit="AddComment()" method="post"> <!-- creates Form for adding comments about the slideshow -->
+
+			  <div class="Email_Address">
+			      <label>Email Address</label><br>
+			      <input type="text" id="Your_Email" name="Your_Email" pattern="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$" maxlength="30" placeholder="characters@character.domain" required> <!--email has a pattern that must be fullfiled, and it is required to fill that field and a max length of 30 char-->
+    		</div>
+
+    	 <div class="Comments_Section">
+				  <label>Comment</label><br>
+				  <textarea rows="5" cols="50" id="Your_Comment"  name="Your_Comment" minlength="2" maxlength="400" placeholder="Add your comment here..." required></textarea> <!-- textarea has a min length of 2 characters and a max length of 400 characters, and it is required to fill that field-->
+          <br>
+			  </div>
+        <br>
+
+        <div id="Rating">
+          <p>Give Rating As Well</p>
+            <input type="radio" id="Ratebtn" name="rate" value="None" checked>None<br> <!--Radio buttons for rating the slideshow, by default the "None" is checked-->
+            <input type="radio" id="Ratebtn" name="rate" value="Bad">Bad<br>
+            <input type="radio" id="Ratebtn" name="rate" value="Okay"> Okay<br>
+            <input type="radio" id="Ratebtn" name="rate" value="Good"> Good<br>
+            <input type="radio" id="Ratebtn" name="rate" value="Very Good"> Very Good<br>
+            <input type="radio" id="Ratebtn" name="rate" value="Excellent"> Excellent<br>
+        </div>
+
+
+			  <div class="Buttons">
+				    <!-- <button id="addBtn" type="button" onclick="clearDatabase()">Clear</button><br> -->  <!--This Button is not available for users, it is only for testing and clearing the database -->
+            <input type="submit" id="addBtn" value="Add Comment"><br> <!--creates a submit button-->
+				    <input type="reset" id="addBtn2" value="Clear Text"> <!--creates a reset button to clear the text in the form-->
+			  </div>
+
+			</form>
+		</div>
+     <br><br />
+
+    <div id="Output_Comment"> </div> <!-- displays the comments in the form of a table-->
+
+
+
+    <script type="text/javascript">
+      var slideIndex = 1; // set to the first image in the slideshow
+      showSlides(slideIndex); // calls the function showSlides() and send the slideIndex as parameter
+
+      function Plus_Minus_Slides(index) { //this function either goes to previous or next image in the slideshow based on the arrows
+        showSlides(slideIndex += index); // call showSlides() function and send the new index as parameter
+      }
+
+      function currentSlide(index) { // this function is used for the dots underneath the slideshow, incase you want to use it instead of the arrows
+        showSlides(slideIndex = index); // each dot has a different number for the image it is associated with
+      }
+
+      function showSlides(index) {//function that shows the images based on the index
+        var i;
+        var slides = document.getElementsByClassName("mySlides"); // an array containing all the image slides
+        var dots = document.getElementsByClassName("dot"); // an array containing all the dots
+
+        if (index > slides.length) { // goes back to the first image, if it reached the last image in the slideshow and you click the "next" arrow again
+            slideIndex = 1;
+        }
+
+        if (index < 1) { // goes back to the last image, if it reached the first image in the slideshow and you click the "previous" arrow again
+           slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) { // set all images to hidden
+            slides[i].style.display = "none";
+        }
+
+        for (i = 0; i < dots.length; i++) { // make all the dots to not active (only the one clicked is active)
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex-1].style.display = "block"; //display in block
+        dots[slideIndex-1].className += " active"; //set the current image dot to active
+      }
+
+//------------------ DATABASE FOR COMMENTS SECTION---------------------------------------------------------------------------------------------------------------------------------------------------
+
+    function AddComment(){
+      var Your_Email = document.getElementById("Your_Email").value; // get the email entered in the textbox
+
+      if ((/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/).test(Your_Email)){ // check if email entered matches the pattern requested
+				var Your_Comment =  document.getElementById("Your_Comment").value; // get the comment entered in the areatext box
+        var Rate = document.getElementsByName('rate'); // an array containing all the ratings
+        var Your_Rating = "";
+
+        for(i = 0; i < Rate.length; i++) { // a loop that goes over all the ratings
+            if(Rate[i].checked) // if the rating is checked
+            Your_Rating = Rate[i].value; // savev that rating into a variable
+        }
+
+				var query = `INSERT INTO COMMENTS (EMAIL, COMMENT, RATE) VALUES ("${Your_Email}", "${Your_Comment}", "${Your_Rating}")`; // insert the email, comment and rating into the database
+
+				db.transaction(function (tx) {
+			   		tx.executeSql(query);	//places the email, comment and rating into the database table
+				});
+
+				CreateNewComment(Your_Email, Your_Comment, Your_Rating);	//create new comment; creates <p> that displays your email, comment and rating below the form
+
+        var emoji = String.fromCodePoint(0x1F604); // saves emoji into a variable
+        alert("Your Comment Was Added Successfully"+emoji); // alerts you that the comment has been added successfully to the comments section below the form
+      }
+    }
+
+			function CreateNewComment(Your_Email, Your_Comment, Your_Rating) //adds the comment to the comments section below thr form
+			{
+
+				var paragraph = document.createElement("p");
+				paragraph.innerHTML = `<b>Email Address: </b>${Your_Email}<br><b>Rating: </b>${Your_Rating}</br><b>Comment:</b><br>${Your_Comment}<br><br><hr />`; // "innerHTML" inserts content into the paragraph variable
+
+				document.getElementById("Output_Comment").appendChild(paragraph);	// inserts content to a specified id of an element, in this case "Output_Comment"
+			}
+
+      // FOR TESTING ONLY - NOT FOR USERS
+			// function clearDatabase()	//empty out database
+		  // 	{
+		  // 		db.transaction(function (tx) {
+			//    		tx.executeSql('DELETE FROM COMMENTS');
+			// 	});
+			// 	document.getElementById("Output_Comment").innerHTML = "";
+		  // }
+    </script>
+  </body>
+</html>

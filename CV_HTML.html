@@ -1,0 +1,349 @@
+<html>
+
+<head>
+<!-- Connects the html file to the CSS file that contains the styles of this page -->
+<link rel="stylesheet" href="CV_CSS.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My CV</title> <!-- Name of the web tab -->
+</head>
+<body>
+
+  <div id="top"></div> <!-- when you click on the "Top" link at the bottom left corner of the screen, it goes up here -->
+  <a id="GoBackToTop" href="#top">Top</a> <!-- A target link, linked to the element with id "top" which is in the same page -->
+
+      <div class="Navigation_Bar"> <!-- serves as a container -->
+        <ul class="nav_bar"> <!-- creats a list -->
+            <!-- All of these are linked to another pages -->
+          <li class="b"><a href="index.html">Home</a></li><!-- links to the "Home" page-->
+          <li class="c"><a href="About_Me_Page_HTML.html">About Me</a></li><!-- links to the "About Me" page -->
+          <li class="d"><a href="My_Skills_HTML.html">My Skills</a></li><!-- links to the "My Skills" page -->
+          <li class="e"><a href="Education_HTML.html">Education</a></li> <!-- links to the "Education" page where a table is used -->
+          <li class="f active"><a href="CV_HTML.html">CV</a></li> <!-- links to the "CV" page where XML and AJAX are included , since this is the "CV" page, the link is active -->
+          <li class="h"><a href="Favourites_HTML.html">3D Models</a></li><!-- links to the "Favourites" page where a Database is created and used for the Comment Section -->
+          <li class="j"><a href="Preferences_HTML.html">Projects</a></li><!-- links to the "Preferences" page where there is external links to real websites  -->
+        <li class="i"><a href="Contact_Me_HTML.html">Contact</a></li><!-- links to the "Adventure" page where an image map was used -->
+          <!-- <li class="k"><a href="Contact_Me_HTML.html">Contact Me</a></li> --><!-- links to the "Contact Me" page where there are links to my social media pages -->
+        </ul>
+      </div>
+
+      <button type="button" id="CV_btn" onclick="getCVAjax()">VIEW MY CV</button> <!-- Creates a button, when you click on this button, the CV will show up -->
+
+      <div id="Heading"  style="visibility: hidden;"></div> <!-- Sets the visibility of the heading to hidden (will be visible when you click on the "CV" button) -->
+      <div id="Container" style="visibility: hidden; display: block;"> <!-- Sets the visibility of the whole CV to hidden (will be visible when you click on the "CV" button) and display in blobk -->
+            <h3>Name: </h3>
+            <p id="MyName"> </p>
+            <br />
+            <h3>Gender:</h3>
+            <p id="Gender"></p>
+            <br />
+            <h3>Nationality: </h3>
+            <p id="Age"> </p>
+            <br />
+            <h3>Date of Birth: </h3>
+            <p id="DOB"></p>
+            <br />
+            <h3>Phone Number: </h3>
+            <p id="Phone"> </p>
+            <br />
+            <h3>Email: </h3>
+            <p id="Email"></p>
+            <br />
+            <h3>Address: </h3>
+            <p id="Address"> </p>
+            <br />
+            <h3>Languages: </h3>
+            <p id="Languages"></p>
+            <br />
+            <h3>Marital Status: </h3>
+            <p id="Marital_Status"></p>
+            <br />
+            <br />
+
+            <h3>Programing Skills learnt inside college: </h3>
+            <br />
+            <p id="Programing_Languages"></p> <!-- A Table -->
+            <br />
+            <br />
+
+            <h3>Programing Skills Self Taught: </h3>
+            <br />
+            <p id="Programing_Languages2"></p> <!-- A Table -->
+            <br />
+            <br />
+
+            <h3>Other Skills learnt during college: </h3>
+            <p id="skills"></p> <!-- An unorder List (bullet points)-->
+            <br />
+
+            <h3>Strengths: </h3>
+            <p id="Side_Skills"></p> <!-- An unorder List (bullet points)-->
+            <br />
+            <br />
+
+            <h3>Academic Certificate: </h3>
+            <p id="Academic_Certificate"></p>
+            <br />
+
+            <h3>Personal Interest: </h3>
+            <p id="personal"></p> <!-- An unorder List (bullet points)-->
+            <br />
+            <br />
+
+            <h3>Education: </h3>
+            <br />
+            <p id="Education"></p> <!-- A Table -->
+            <br />
+            <br />
+      </div>
+
+      <script>
+
+        function getCVAjax(){
+
+          var answer = prompt("Confirm your choice (Yes or No)"); //prompt message, stores your answer in a variable
+
+          if ((/^(Yes|yes|YES)$/).test(answer)) { //checks if your answer is same as the pattern, if it is the same as one of "yes-es" in the pattern than..
+
+            document.getElementById('CV_btn').style.visibility = 'hidden'; // hide the CV button
+            var xhttp = new XMLHttpRequest(); //requests data from a server (file)
+            xhttp.onreadystatechange = function() { //specifies a function to be executed every time the status of the XMLHttpRequest object changes
+
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                     processReceipt(xhttp);
+                   }
+            };
+            xhttp.open("GET", "CV_XML.xml", true); //Specifies the type of request and gets the server (file) location
+            xhttp.send(); //Sends the request to the server
+        }
+        else if((/^(No|no|NO)$/).test(answer)){  //checks if your answer is same as the pattern, if it is the same as one of "No-s" in the pattern than..
+                alert("CV display is cancelled"); // display an alert message saying that the CV display is cancelled
+        }
+        else{
+               getCVAjax(); // if your answer is not the same as the pattern, call the function again and display the prompt message again
+        }
+    }
+
+      function processReceipt(xhttp){
+        var xml = xhttp.responseXML; //get the response XML
+
+        //parse the XML into an array of javascript objects
+        var itemArray = parseXML(xml);
+        var itemArray_2 = parseXML_2(xml);
+        var itemArray_3 = parseXML_3(xml);
+        var itemArray_4 = parseXML_4(xml);
+        var itemArray_5 = parseXML_5(xml);
+        var itemArray_6 = parseXML_6(xml);
+
+        //display the array of javascript objects as a HTML table
+        display(itemArray);
+        display_2(itemArray_2);
+        display_3(itemArray_3);
+        display_4(itemArray_4);
+        display_5(itemArray_5);
+        display_6(itemArray_6);
+      }
+
+      function parseXML(xml){
+
+       document.getElementById('Heading').style.visibility = 'visible'; // sets visibility of the heading to visible
+       document.getElementById('Heading').innerHTML = "My CV"; // "innerHTML" inserts content to a specified id of an element, in this case "Heading"
+
+       document.getElementById('Container').style.visibility = 'visible'; // sets visibility of the CV container to visible
+
+       var My_Name = xml.getElementsByTagName("Myname"); // get the value with the Name Tag <Myname>
+       document.getElementById('MyName').innerHTML = My_Name[0].childNodes[0].nodeValue; //  inserts content to the element with id  "MyName"
+
+       var Gender = xml.getElementsByTagName("gender"); // get the value with the Name Tag <gender>
+       document.getElementById('Gender').innerHTML = Gender[0].childNodes[0].nodeValue; //  inserts content to the element with id  "Gender"
+
+       var Age = xml.getElementsByTagName("age"); // get the value with the Name Tag <age>
+       document.getElementById('Age').innerHTML = Age[0].childNodes[0].nodeValue; //  inserts content to the element with id  "Age"
+
+       var DOB = xml.getElementsByTagName("DOB"); // get the value with the Name Tag <DOB>
+       document.getElementById('DOB').innerHTML = DOB[0].childNodes[0].nodeValue; //  inserts content to the element with id  "DOB"
+
+       var Phone = xml.getElementsByTagName("phone"); // get the value with the Name Tag <phone>
+       document.getElementById('Phone').innerHTML = Phone[0].childNodes[0].nodeValue; //  inserts content to the element with id  "Phone"
+
+       var Email = xml.getElementsByTagName("email"); // get the value with the Name Tag <email>
+       document.getElementById('Email').innerHTML = Email[0].childNodes[0].nodeValue; //  inserts content to the element with id  "Email"
+
+       var Address = xml.getElementsByTagName("Address"); // get the value with the Name Tag <Address>
+       document.getElementById('Address').innerHTML = Address[0].childNodes[0].nodeValue; //  inserts content to the element with id  "Address"
+
+       var Languages = xml.getElementsByTagName("languages"); // get the value with the Name Tag <languages>
+       document.getElementById('Languages').innerHTML = Languages[0].childNodes[0].nodeValue; //  inserts content to the element with id  "Languages"
+
+       var Marital_Status = xml.getElementsByTagName("Marital_Status"); // get the value with the Name Tag <Marital_Status>
+       document.getElementById('Marital_Status').innerHTML = Marital_Status[0].childNodes[0].nodeValue; //  inserts content to the element with id  "Marital_Status"
+
+       var Academic_Certificate = xml.getElementsByTagName("Academic_Certificate"); // get the value with the Name Tag <Academic_Certificate>
+       document.getElementById('Academic_Certificate').innerHTML = Academic_Certificate[0].childNodes[0].nodeValue; //  inserts content to the element with id  "Academic_Certificate"
+
+
+        var Programing_Languages = xml.getElementsByTagName("Programing_Languages"); // get the value with the Name Tag <Programing_Languages>
+        var itemArray = []; //create an array to hold javascript item objects
+        for(var i=0; i< Programing_Languages.length; i++){ //go through each item element under the Name Tag <Programing_Languages>
+         	var item = {}; //create a javascript object to hold item information
+       	  item.name = Programing_Languages[i].getElementsByTagName("name")[0].childNodes[0].nodeValue; // get the value with the Name Tag <name>
+         	item.level = Programing_Languages[i].getElementsByTagName("level")[0].childNodes[0].nodeValue; // get the value with the Name Tag <level>
+         	itemArray.push(item); //put the javascript object item into the array
+       }
+
+       return itemArray; //return the array of javascript item objects
+     }
+
+       function parseXML_2(xml){
+
+         var Programing_Languages2 = xml.getElementsByTagName("Programing_Languages2"); // get the value with the Name Tag <Programing_Languages2>
+         var itemArray_2 = [];//create an array to hold javascript item objects
+         for(var i=0; i< Programing_Languages2.length; i++){ //go through each item element under the Name Tag <Programing_Languages2>
+           var item_2 = {};//create a javascript object to hold item information
+           item_2.name = Programing_Languages2[i].getElementsByTagName("name")[0].childNodes[0].nodeValue; // get the value with the Name Tag <name>
+           item_2.level = Programing_Languages2[i].getElementsByTagName("level")[0].childNodes[0].nodeValue; // get the value with the Name Tag <level>
+           itemArray_2.push(item_2);//put the javascript object item into the array
+        }
+
+           return itemArray_2;//return the array of javascript item objects
+       }
+
+       function parseXML_3(xml){
+
+         var skills = xml.getElementsByTagName("skills"); // get the value with the Name Tag <skills>
+         var itemArray_3 = [];//create an array to hold javascript item objects
+         for(var i=0; i< skills.length; i++){ //go through each item element under the Name Tag <skills>
+           var item_3 = {};//create a javascript object to hold item information
+           item_3.Other_Skills = skills[i].getElementsByTagName("Other_Skills")[0].childNodes[0].nodeValue; // get the value with the Name Tag <Other_Skills>
+           itemArray_3.push(item_3); //put the javascript object item into the array
+        }
+           return itemArray_3; //return the array of javascript item objects
+       }
+
+       function parseXML_4(xml){
+
+         var Side_Skills = xml.getElementsByTagName("More_Skills"); // get the value with the Name Tag <More_Skills>
+         var itemArray_4 = [];//create an array to hold javascript item objects
+         for(var i=0; i< Side_Skills.length; i++){ //go through each item element under the Name Tag <Side_Skills>
+           var item_4 = {};//create a javascript object to hold item information
+           item_4.Side_Skills = Side_Skills[i].getElementsByTagName("Side_Skills")[0].childNodes[0].nodeValue; // get the value with the Name Tag <Side_Skills>
+           itemArray_4.push(item_4);//put the javascript object item into the array
+        }
+           return itemArray_4;//return the array of javascript item objects
+       }
+
+       function parseXML_5(xml){
+
+         var personal = xml.getElementsByTagName("myInterest"); // get the value with the Name Tag <myInterest>
+         var itemArray_5 = [];//create an array to hold javascript item objects
+         for(var i=0; i< personal.length; i++){ //go through each item element under the Name Tag <personal>
+           var item_5 = {};//create a javascript object to hold item information
+           item_5.personal = personal[i].getElementsByTagName("personal")[0].childNodes[0].nodeValue; // get the value with the Name Tag <personal>
+           itemArray_5.push(item_5);//put the javascript object item into the array
+        }
+           return itemArray_5;//return the array of javascript item objects
+       }
+
+       function parseXML_6(xml){
+
+         var Education = xml.getElementsByTagName("Education"); // get the value with the Name Tag <Education>
+         var itemArray_6 = [];//create an array to hold javascript item objects
+         for(var i=0; i< Education.length; i++){ //go through each item element under the Name Tag <Education>
+           var item_6 = {};//create a javascript object to hold item information
+           item_6.Certification = Education[i].getElementsByTagName("Certification")[0].childNodes[0].nodeValue;// get the value with the Name Tag <Certificate>
+           item_6.School_name = Education[i].getElementsByTagName("School_name")[0].childNodes[0].nodeValue;// get the value with the Name Tag <School_name>
+           item_6.year = Education[i].getElementsByTagName("year")[0].childNodes[0].nodeValue;// get the value with the Name Tag <year>
+           item_6.performance = Education[i].getElementsByTagName("performance")[0].childNodes[0].nodeValue;// get the value with the Name Tag <performance>
+           itemArray_6.push(item_6);//put the javascript object item into the array
+        }
+           return itemArray_6;//return the array of javascript item objects
+       }
+
+      function display(itemArray){
+        var html = "<table border='1' id='Programing_Languages_Table'>"; // creates a table
+        html += "<tr><th>Name</th><th>Level</th></tr>"; // creates headers for each column
+
+       for(var i=0; i<itemArray.length; i++){
+       	html += "<tr>"; // creates rows
+       	html += "<td>" + itemArray[i].name + "</td>"; // adds data to each column
+       	html += "<td>" + itemArray[i].level + "</td>";
+       	html += "</tr>";
+       }
+       html += "</table>";
+       html += "<br />";
+       document.getElementById("Programing_Languages").innerHTML = html; //  inserts content to the element with id  "Programing_Languages"
+      }
+
+      function display_2(itemArray_2){
+        var html = "<table border='1' id='Programing_Languages_Table2'>"; // creates a table
+        html += "<tr><th>Name</th><th>Level</th></tr>";// creates headers for each column
+
+       for(var i=0; i<itemArray_2.length; i++){
+        html += "<tr>"; // creates rows
+        html += "<td>" + itemArray_2[i].name + "</td>";// adds data to each column
+        html += "<td>" + itemArray_2[i].level + "</td>";
+        html += "</tr>";
+       }
+       html += "</table>";
+       html += "<br />";
+       document.getElementById("Programing_Languages2").innerHTML = html; //  inserts content to the element with id  "Programing_Languages2"
+      }
+
+      function display_3(itemArray_3){
+       var html = "<table id='skills_list'>"; // creates a table
+
+       for(var i=0; i<itemArray_3.length; i++){
+        html += "<tr><td><li>" + itemArray_3[i].Other_Skills + "</li></td></tr>";// creates rows and  adds data to each column
+        html += "<br />";
+       }
+       html += "</table>";
+       html += "<br />";
+       document.getElementById("skills").innerHTML = html; //  inserts content to the element with id  "skills"
+      }
+
+      function display_4(itemArray_4){
+       var html = "<table id='other_skills_list'>"; // creates a table
+
+       for(var i=0; i<itemArray_4.length; i++){
+        html += "<tr><td><li>" + itemArray_4[i].Side_Skills + "</li></td></tr>"; // creates rows and  adds data to each column
+        html += "<br />";
+       }
+       html += "</table>";
+       html += "<br />";
+       document.getElementById("Side_Skills").innerHTML = html; //  inserts content to the element with id  "Side_Skills"
+      }
+
+      function display_5(itemArray_5){
+       var html = "<table id='Interest_list'>"; // creates a table
+
+       for(var i=0; i<itemArray_5.length; i++){
+        html += "<tr><td><li>" + itemArray_5[i].personal + "</li></td></tr>"; // creates rows and  adds data to each column
+        html += "<br />";
+       }
+       html += "</table>";
+       html += "<br />";
+       document.getElementById("personal").innerHTML = html; //  inserts content to the element with id  "personal"
+      }
+
+      function display_6(itemArray_6){
+        var html = "<table border='1' id='Education_Table'>"; // creates a table
+        html += "<tr><th>Certification</th><th>School Name</th><th>Year</th><th>Performance</th></tr>";// creates headers for each column
+
+       for(var i=0; i<itemArray_6.length; i++){
+        html += "<tr>"; // creates rows
+        html += "<td>" + itemArray_6[i].Certification + "</td>";// adds data to each column
+        html += "<td>" + itemArray_6[i].School_name + "</td>";
+        html += "<td>" + itemArray_6[i].year + "</td>";
+        html += "<td>" + itemArray_6[i].performance + "</td>";
+        html += "</tr>";
+       }
+       html += "</table>";
+       html += "<br />";
+       document.getElementById("Education").innerHTML = html; //  inserts content to the element with id  "Education"
+      }
+
+      </script>
+
+
+
+</body>
+</html>

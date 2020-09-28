@@ -1,0 +1,273 @@
+/* CSS file that is connected to the html file that uses it for styling the content in it */
+
+*{
+cursor: url(heart_cursor_2.cur), default; /*changes the cursor to the one desired */
+margin: 0;  /* this will set the whole page to 0 */
+padding: 0;  /* for a fresh clean start with no margin or paddings*/
+box-sizing: border-box; /* border-box: the height and width properties as well as min/max properties includes padding, border and content*/
+}
+
+body{
+  background-image: url(pinkClouds.jpg); /* background image for the whole page*/
+  background-repeat: no-repeat; /* to fill in the page it shouldn't repeat the image, instead streches the image*/
+  background-attachment: fixed; /* fixes the image in place, so when you scroll the background doesn't move*/
+  background-size: 100% 100%; /* to fill the whole page in terms of width and height*/
+}
+
+.nav_bar{
+	list-style-type: none; /* to make the list bullet points marker as none*/
+	margin-top: 2%; /* to adjust the location of the navigation bar from the top*/
+  margin-left: 13%; /* to adjust the location of the navigation bar from the left*/
+  position: fixed;  /* fixes the Navigation Bar in place, so when you scroll down it doesn't move up [positioned relative to the browser window]*/
+  z-index: 1; /* interms of priority of what shows on top of the other, Navigation bar has the top priority [bring front]*/
+  font-family: Century Gothic; /* sets the font family of the text */
+}
+
+.nav_bar li{
+  float: left;
+	display: inline; /*makes the list content [links] display on the same line*/
+  padding: 14px; /*adds space between the list content [links]*/
+}
+
+.nav_bar li a{
+	text-decoration: none; /*by default links are underlined, so setting this to none removes the underline*/
+	color: white; /*makes text color white*/
+	padding: 10px 20px; /*sets the padding around the links*/
+	border: 1px solid transparent; /*sets border to transparent*/
+  transition: 0.6s ease; /*adds animation to the navigation bar, so when the page opens..the navigation bar moves from left to right smoothly*/
+  margin: 5px;
+}
+
+.nav_bar li a:hover{ /* when the cursor hovers over a link, changes happen to the style */
+  background-color: white; /* when the cursor hovers over a link, the background color of that link becomes white */
+  color: black; /* and the text color become black */
+
+  /*once the cursor moves away the link goes back to it's original style*/
+}
+
+.nav_bar li.active a{ /* "active" is used to select and style the active link, a link becomes active when you click on it */
+  background-color: white;
+  color: black;
+}
+
+#GoBackToTop {
+  position: fixed;/* fixes the "Top" linl element in place, so when you scroll the element doesn't move*/
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: White;
+  color: rgba(212, 175, 55, 1);
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: Century Gothic;
+}
+
+#GoBackToTop:hover {
+  background-color: #555;
+}
+
+
+.heading{  /* changing the position of the header */
+   position: absolute;
+   top: 150px;
+   left: 500px;
+   border: 3px solid rgba(212, 175, 55, 1);
+   border-radius: 15px;
+   background-color: rgba(255, 192, 203, .5);
+   width: 610px;
+   padding: 10px 10px;
+   text-align: center;
+   font-family: Century Gothic;
+}
+
+img {  /* changing the style of the image */
+  vertical-align: middle;
+  border: 3px solid rgba(212, 175, 55, 1);
+  border-radius: 15px;
+}
+
+.slideshow-container {  /* changing the style of the slideshow */
+max-width: 900px;
+position: relative;
+margin: auto;
+top:70px;
+font-family: Century Gothic;
+}
+
+/* Next & previous buttons styling */
+.prev, .next {
+cursor: pointer;
+position: relative;
+bottom: 300px;
+right: 100px;
+width: auto;
+padding: 16px;
+margin-top: -22px;
+color: black;
+font-weight: bold;
+font-size: 18px;
+transition: 0.6s ease;  /* allows you to change property values smoothly, over a given duration */
+border-radius: 0 3px 3px 0;
+user-select: none; /* specifies whether the text of an element can be selected */
+}
+
+/* Position the "next button" to the right */
+.next {
+left: 930px;
+border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a gold background color with a little bit see-through */
+.prev:hover, .next:hover {
+background-color: rgba(212, 175, 55,0.5);
+}
+
+/* Caption text styling */
+.text {
+font-size: 20px;
+position: relative;
+bottom: 55px;
+width: 100%;
+text-align: center;
+border: 3px solid rgba(212, 175, 55, 1);
+border-radius: 15px;
+padding: 10px 20px;
+background-color: rgba(255, 192, 203, .8);
+font-weight: bold;
+font-family: Century Gothic;
+}
+
+/* styling the Number text (1/8 etc) on top of the slideshow */
+.numbertext {
+color: white;
+font-size: 15px;
+padding: 8px 12px;
+position: relative;
+top: 0;
+left: 435px;
+font-weight: bold;
+font-family: Century Gothic;
+}
+
+/* The dots styling */
+.dot {
+cursor: pointer;
+height: 15px;
+width: 15px;
+margin: 0 2px;
+background-color: #555;
+border: 3px solid rgba(212, 175, 55, 1);
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.6s ease;
+position: relative;
+top: 20px;
+}
+
+ .dot:hover {  /* when you hover on a dot it changes color */
+background-color: white;
+}
+
+.dot.active{ /* when you click on a dot it changes color and becomes active*/
+  background-color: white;
+}
+
+/* Fading animation */
+.fade {
+-webkit-animation-name: fade;
+-webkit-animation-duration: 1.5s;
+animation-name: fade;
+animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {  /* Creates the Fading animation */
+from {opacity: .2}
+to {opacity: 1}
+}
+
+@keyframes fade { /* Creates the Fading animation */
+from {opacity: .2}
+to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+.prev, .next,.text {font-size: 11px}
+}
+
+.comment_container { /* styling the comment form */
+  position: relative;
+  width: 32.5%;
+  height: 100%;
+  Left: 530px;
+  padding-top: 45px;
+  padding-left: 30px; /* Adjust the value as needed to get it to be centered below the slideshow */
+  border: 3px solid rgba(212, 175, 55, 1);
+  border-radius: 8px;
+  background-color: rgba(255, 192, 203, .5);
+  font-family: Century Gothic;
+}
+
+#Output_Comment{ /* styling the comments section under the form */
+  border: 3px solid rgba(212, 175, 55, 1);
+  border-radius: 8px;
+  background-color: rgba(255, 192, 203, .5);
+  font-family: Century Gothic;
+}
+
+#comment_heading{ /* styling the heading*/
+  text-align: center;
+}
+
+#Your_Email{  /* styling the email textbox*/
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 3px solid rgba(212, 175, 55, 1);
+  width: 300px;
+}
+
+#Your_Comment{  /* styling the comment areatext box*/
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 3px solid rgba(212, 175, 55, 1);
+  width: 450px;
+  height: 200px;
+}
+
+
+#addBtn, #addBtn2{  /* styling the buttons in the form*/
+  position: relative;
+  border: 3px solid rgba(212, 175, 55, 1);
+  border-radius: 8px;
+  background-color: white;
+  padding: 5px 5px;
+  color: rgba(212, 175, 55, 1);
+  font-weight: bold;
+  font-size: 16px;
+  top:-15px;
+  left: 300px;
+  font-family: Century Gothic;
+}
+
+#addBtn2{ /* changing position of second button */
+  position: relative;
+  top: -7px;
+  left: 320px;
+}
+
+#addBtn:hover. #addbtn2:hover{ /* when you hover on a button it changes color*/
+  background-color: #555;
+}
