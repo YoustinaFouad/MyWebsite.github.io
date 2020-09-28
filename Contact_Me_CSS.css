@@ -99,6 +99,6 @@ body{
 }
 
 
-.link1 img, .link2 img{ /* changing the position of the facebook and instagram images */
+.link1 img, .link2 img , .link3 img , .link4 img , .link5 img { /* changing the position of the facebook and instagram images */
   cursor: pointer;
 }
