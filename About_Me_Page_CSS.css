@@ -122,7 +122,7 @@ body{
 
 #Loc{ /* changing the position and border of the text */
   position: relative;
-  top: 10px;
+  top: -10px;
   left: 1020px;
   font-size: 180%;
   display: flex;
@@ -136,7 +136,7 @@ body{
 
 #degree{ /* changing the position and border of the text */
   position: relative;
-  top: 55px;
+  top: 50px;
   left: 1300px;
   font-size: 180%;
   display: flex;
@@ -150,7 +150,7 @@ body{
 
 #Grad{ /* changing the position and border of the text */
   position: relative;
-  top: 120px;
+  top: 110px;
   left: 1100px;
   display: flex;
   width:21%;
