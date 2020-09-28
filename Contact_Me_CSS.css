@@ -66,28 +66,35 @@ body{
 .link1{  /* changing the position of the link */
   position: relative;
   top: 300px;
-  left: 370px;
+  left: 200px;
   font-family: Century Gothic;
 }
 
 .link2{  /* changing the position of the link */
   position: relative;
   top: 300px;
-  left: 410px;
+  left: 240px;
   font-family: Century Gothic;
 }
 
 .link3{  /* changing the position of the link */
   position: relative;
   top: 300px;
-  left: 440px;
+  left: 270px;
   font-family: Century Gothic;
 }
 
 .link4{  /* changing the position of the link */
   position: relative;
   top: 300px;
-  left: 480px;
+  left: 310px;
+  font-family: Century Gothic;
+}
+
+.link5{  /* changing the position of the link */
+  position: relative;
+  top: 300px;
+  left: 370px;
   font-family: Century Gothic;
 }
 
